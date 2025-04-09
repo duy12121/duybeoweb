@@ -1,6 +1,4 @@
-// Xử lý preloader
 window.addEventListener('load', function() {
-    // Ẩn preloader sau khi trang đã tải xong
     const preloader = document.querySelector('.preloader');
     if (preloader) {
         setTimeout(() => {
@@ -12,9 +10,7 @@ window.addEventListener('load', function() {
     }
 });
 
-// Hiệu ứng glitch cho tiêu đề
 document.addEventListener('DOMContentLoaded', function() {
-    // Hiệu ứng glitch ngẫu nhiên cho text
     const glitchElements = document.querySelectorAll('.glitch');
     
     glitchElements.forEach(element => {
@@ -26,7 +22,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 3000 + Math.random() * 5000);
     });
 
-    // Hiệu ứng hover cho các game card
     const gameCards = document.querySelectorAll('.game-card');
     
     gameCards.forEach(card => {
@@ -39,7 +34,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Hiệu ứng smooth scroll cho các liên kết điều hướng
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
@@ -56,7 +50,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Hiệu ứng parallax cho hero section
     window.addEventListener('scroll', function() {
         const scrollPosition = window.pageYOffset;
         const heroSection = document.querySelector('.hero');
@@ -66,7 +59,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Hiệu ứng hiển thị khi scroll
     const revealElements = document.querySelectorAll('.about-section, .games-section, .links-section');
     
     function checkReveal() {
@@ -83,9 +75,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     window.addEventListener('scroll', checkReveal);
-    checkReveal(); // Kiểm tra ngay khi trang tải xong
+    checkReveal();
 
-    // Hiệu ứng typing cho tagline
     const tagline = document.querySelector('.tagline');
     if (tagline) {
         const text = tagline.textContent;
@@ -103,7 +94,6 @@ document.addEventListener('DOMContentLoaded', function() {
         setTimeout(typeWriter, 1000);
     }
 
-    // Hiệu ứng neon flicker cho logo
     const neonText = document.querySelector('.neon-text');
     if (neonText) {
         setInterval(() => {
@@ -114,7 +104,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 100 + Math.random() * 1000);
     }
 
-    // Thêm hiệu ứng cho skill bars
     function animateSkillBars() {
         const skillLevels = document.querySelectorAll('.skill-level');
         
@@ -128,7 +117,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Gọi hàm animateSkillBars khi phần about hiển thị
     const aboutSection = document.querySelector('.about-section');
     if (aboutSection) {
         const observer = new IntersectionObserver((entries) => {
@@ -143,7 +131,6 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(aboutSection);
     }
 
-    // Particles background
     if (typeof particlesJS !== 'undefined') {
         particlesJS("particles-js", {
             "particles": {
@@ -252,3 +239,150 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    if (typeof particlesJS !== 'undefined') {
+        particlesJS('particles-js', {
+            "particles": {
+                "number": {
+                    "value": 80,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": "#ffde00"
+                },
+                "shape": {
+                    "type": "circle",
+                    "stroke": {
+                        "width": 0,
+                        "color": "#000000"
+                    },
+                    "polygon": {
+                        "nb_sides": 5
+                    }
+                },
+                "opacity": {
+                    "value": 0.5,
+                    "random": false,
+                    "anim": {
+                        "enable": false,
+                        "speed": 1,
+                        "opacity_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "size": {
+                    "value": 3,
+                    "random": true,
+                    "anim": {
+                        "enable": false,
+                        "speed": 40,
+                        "size_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#ffde00",
+                    "opacity": 0.4,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 6,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                    "attract": {
+                        "enable": false,
+                        "rotateX": 600,
+                        "rotateY": 1200
+                    }
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "repulse"
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push"
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": {
+                        "distance": 400,
+                        "line_linked": {
+                            "opacity": 1
+                        }
+                    },
+                    "bubble": {
+                        "distance": 400,
+                        "size": 40,
+                        "duration": 2,
+                        "opacity": 8,
+                        "speed": 3
+                    },
+                    "repulse": {
+                        "distance": 200,
+                        "duration": 0.4
+                    },
+                    "push": {
+                        "particles_nb": 4
+                    },
+                    "remove": {
+                        "particles_nb": 2
+                    }
+                }
+            },
+            "retina_detect": true
+        });
+    }
+
+    createFireworks();
+
+    setTimeout(function() {
+        document.querySelector('.preloader').style.opacity = '0';
+        setTimeout(function() {
+            document.querySelector('.preloader').style.display = 'none';
+        }, 500);
+    }, 1500);
+});
+
+function createFireworks() {
+    function createFirework() {
+        const colors = ['#ffde00', '#ff0000', '#ffffff', '#00ff00', '#0000ff'];
+        const firework = document.createElement('div');
+        firework.className = 'firework';
+
+        const startX = Math.random() * window.innerWidth;
+        const startY = window.innerHeight;
+
+        const endX = (Math.random() - 0.5) * 200;
+        const endY = -(Math.random() * 300 + 100);
+        
+        firework.style.left = startX + 'px';
+        firework.style.top = startY + 'px';
+        firework.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        firework.style.setProperty('--x', endX + 'px');
+        firework.style.setProperty('--y', endY + 'px');
+        
+        document.body.appendChild(firework);
+
+        setTimeout(() => {
+            firework.remove();
+        }, 2000);
+    }
+
+    setInterval(createFirework, 300);
+}
